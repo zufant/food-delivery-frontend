@@ -5,13 +5,13 @@ Order Delivery is build using.
 - SCSS and Angular Material UI
 
 ## Installation
-Install the dependencies using the below command
+Install the dependencies using:
 
 ```
 cd /project_directory
 npm install --force
 ```
-To run the project
+Run the project using:
 ```
 ng serve
 ```
