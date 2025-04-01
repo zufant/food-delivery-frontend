@@ -1,0 +1,35 @@
+
+<div class="row mb-3">
+
+  <div  class="col-10 col-md-5 mb-2 mb-md-0">
+    <mat-form-field appearance="outline" class="w-100">
+      <mat-label>Search by Menu Catagory</mat-label>
+      <mat-select [(ngModel)]="selectedCategoryId" (selectionChange)="onCategoryChange()">
+        <mat-option [value]="null">All</mat-option>
+        <mat-option *ngFor="let category of categories" [value]="category.category_id">
+          {{ category.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>
+
+<div class="row">
+  
+  <div *ngFor="let item of menuItems" class="col-xl-4">
+    <app-card [hidHeader]="true">
+      <h6 class="mb-4"><span class="bold-text">Name:</span> {{ item.name }} ,{{ item.categoryname }}</h6>
+      <h6 class="mb-4"><span class="bold-text">Restaurant:</span> {{ item.restaurantname }}</h6>
+       <h6 class="mb-4"><span class="bold-text">Address:</span> {{ item.restaurantaddress }}</h6>
+      <div class="row d-flex align-items-center">
+        <div class="col-9">
+          <h3 class="f-w-300 d-flex align-items-center m-b-0">
+            <i class="feather icon-pizza f-30 m-r-10"></i>
+            {{ item.price | currency }}
+          </h3>
+        </div>
+      </div>
+    </app-card>
+  </div>
+</div>
+

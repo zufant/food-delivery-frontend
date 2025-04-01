@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col-sm-12">
+    <button class="btn btn-primary" (click)="addDialog()">Add Category</button>
+    <div class="row">
+      <div class="col-xl-12">
+        <app-card cardTitle="Categories" [options]="false" blockClass="table-border-style">
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Category Name</th>
+                  <th>Category Description</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let category of categories; let i = index">
+                  <th scope="row">{{ i + 1 }}</th>
+                  <td>{{ category.name }}</td>
+                  <td>{{ category.description }}</td>
+                  <td>
+                    <mat-icon matTooltipClass="custom-tooltip" class="green-icon" matTooltip="Edit Category" (click)="updateDialog(category)">edit</mat-icon>
+                    <mat-icon matTooltipClass="custom-tooltip" class="red-icon" matTooltip="Delete Category" (click)="confirmDelete(category)"> delete </mat-icon>
+                  </td>
+                </tr>
+                <tr *ngIf="categories.length === 0">
+                  <td colspan="2" class="text-center">No categories found</td>
+                </tr>
+              </tbody>
+            </table>
+            <mat-paginator 
+            [length]="totalItems" 
+            [pageSize]="pageSize" 
+            [pageSizeOptions]="[5, 10, 20]" 
+            (pageIndexChange)="onPageChange($event)" 
+            showFirstLastButtons>
+          </mat-paginator>
+          </div>
+        </app-card>
+      </div>
+    </div>
+  </div>
+</div>

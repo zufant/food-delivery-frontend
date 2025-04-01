@@ -1,0 +1,50 @@
+<h2 mat-dialog-title>{{ categoryId ? 'Edit Menu Category' : 'Add Menu Category' }}</h2>
+
+<mat-dialog-content>
+  <div class="row">
+    <div class="col-12">
+      <form action="javascript:" #saveForm="ngForm">
+        <div class="form-group">
+          <label for="categoryName">Category Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="categoryName"
+            [(ngModel)]="name"
+            #nameRef="ngModel"
+            name="name"
+            placeholder="Enter category name"
+            required
+          />
+        </div>
+        <div *ngIf="(nameRef.invalid && nameRef.touched) || (nameRef.invalid && submitted)" class="text-danger text-start">
+          Name is required.
+        </div>
+
+        <div class="form-group">
+          <label for="categoryDescription">Description</label>
+          <textarea
+            class="form-control"
+            id="categoryDescription"
+            [(ngModel)]="description"
+            name="description"
+            #descriptionRef="ngModel"
+            rows="3"
+            placeholder="Enter description"
+            required
+          ></textarea>
+        </div>
+        <div *ngIf="(descriptionRef.invalid && descriptionRef.touched) || (descriptionRef.invalid && submitted)" class="text-danger text-start">
+          Description is required.
+        </div>
+      </form>
+    </div>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button  (click)="save(saveForm)" class="btn btn-primary">
+    {{ categoryId ? 'Update' : 'Add' }}
+  </button>
+  <button mat-button mat-dialog-close class="btn btn-danger">Cancel</button>
+</mat-dialog-actions>

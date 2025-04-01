@@ -1,0 +1,29 @@
+mat-icon {
+    cursor: pointer;
+    transition: transform 0.3s ease; 
+  }
+  
+  mat-icon:hover {
+    transform: scale(1.1); 
+  }
+  .green-icon {
+    color: #28a745;
+    cursor: pointer; 
+    transition: color 0.3s ease;
+    font-size: 18px;
+  }
+  
+  .green-icon:hover {
+    color: #218838; 
+    font-size: 18px;
+  }
+  .custom-tooltip {
+    background-color: green !important;  
+    color: white !important;            
+    font-size: 14px !important;         
+  }
+  
+.red-icon {
+    color: rgb(190, 50, 50);
+    cursor: pointer;
+  }
