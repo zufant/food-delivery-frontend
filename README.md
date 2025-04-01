@@ -15,4 +15,3 @@ Run the project using:
 ```
 ng serve
 ```
-```sh
